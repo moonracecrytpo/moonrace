@@ -1,0 +1,269 @@
+.body {
+    background: url(./images/swap_background.png) no-repeat center center fixed !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    opacity: 50%;
+}
+
+.swap-flex {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 200px;
+    padding-top: 200px;
+    align-items: center;
+}
+
+.swap-container {
+    width: 700px;
+    background-color: #FFFBEB;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top {
+    border-radius: 20px 20px 0 0;
+}
+
+.bottom {
+    border-radius: 0 0 20px 20px;
+}
+
+.top, .bottom{
+    background-color: #E9DFB3;
+    width: 97%;
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-btn {
+    margin: 10px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 22px;
+}
+
+.swap-title {
+    font-size: 14px;
+    color: #22272C;
+    align-self: start;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.value {
+    background-color: #C5BD9A;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    font-size: 28px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 10px;
+    padding-top: 18px;
+    padding-bottom: 10px;
+}
+
+.right > .value {
+    background-color: #ABA380;
+
+}
+
+.left {
+    padding-left: 50px;
+    color: #22272C;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    color: #22272C;
+    padding-right: 50px;
+
+}
+
+.left-value {
+    font-size: 28px;
+}
+
+.left-balance {
+    font-size: 18px;
+}
+
+.bottom {
+    background-color: #CFC59A;
+    width: 97%;
+}
+
+.value  {
+    height: 40px;
+}
+
+.submit-btn {
+    background-color: #173555;
+    width: 97%;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0 0);
+  }
+
+input {
+    all: unset;
+    width: 80%;
+    text-align: right;
+}
+
+.refresh {
+    cursor: pointer;
+    position: absolute;
+    top: 92%;
+    left: 95%;
+    display: flex;
+    flex-direction: column; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* NAVIGATION */
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link  {
+    background-color: white;
+    width: 100px;
+    height: 50px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+
+}
+.nav-link > Link:link {
+
+    text-decoration: none;
+}
+
+.alien {
+    position: relative;
+    right:  55px;
+    bottom:  5px;
+
+}
+
+.logo {
+    padding-top: 10px;
+}
+
+/* teams */
+
+.teams {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.blue {
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    border-radius: 10px;
+    color: #3BB5E3;
+}
+
+.orange {
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    border-radius: 10px;
+    color: #E98146;
+}
+
+.blue, .orange {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-amount {
+    font-size: 32px;
+}
+
+.error {
+    position: absolute;
+    display: flex;
+    top: 90%;
+    left: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #B43D3D;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 14px;
+}
+
+
+.success {
+    position: absolute;
+    display: flex;
+    top: 90%;
+    left: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #63C269;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+}
+
+.details {
+    padding-right: 20px;
+    color: #22272C;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
