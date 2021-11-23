@@ -26,14 +26,22 @@ export const Navigation = () => {
             </div>
             <div>
             <div className="nav-links">
-                <div className="nav-link">
-                    <Link style={{ textDecoration: 'none' }} to="/">
-                    MOON
-                    </Link>
-                </div>
-                <div className="nav-link">
-                    <Link style={{ textDecoration: 'none' }}to="/Swap">BUY</Link>
-                </div>
+                 <Link style={{ textDecoration: 'none' }} to="/">
+                    <div className="nav-link">
+                        MOON
+                    </div>
+                </Link>
+
+                <Link style={{ textDecoration: 'none' }}to="/Presale">
+                    <div className="nav-link">
+                        BUY
+                    </div>
+                </Link>
+                {/* <Link style={{ textDecoration: 'none' }}to="/Swap">
+                    <div className="nav-link">
+                        SWAP
+                    </div>
+                </Link> */}
             </div>
                 <WalletMultiButton />
                 {wallet && <WalletDisconnectButton />}

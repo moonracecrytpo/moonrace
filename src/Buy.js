@@ -110,9 +110,10 @@ export function Buy() {
       }
 
     return (
-        <div></div>
-        // <button onClick={handleClick} >
-        //     Buy MOONRACE
-        // </button>
+        <div>
+        <button onClick={handleClick} >
+            Buy MOONRACE
+        </button>
+        </div>
     );
 };

@@ -135,7 +135,7 @@ export function Presale({amount}) {
       }
 
     return (
-        <div  className='submit-btn' onClick={handleClick} >
+        <div className='submit-btn' onClick={handleClick} >
             BUY
             {isError && 
                 <div className="error">

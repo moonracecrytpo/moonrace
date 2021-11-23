@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import '../main.css';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { Swap } from '../Swap';
+import { Presale } from '../Presale';
 import { PublicKey } from '@solana/web3.js';
 import { Provider, Program } from '@project-serum/anchor'
 import { MOONRACE_PROGRAM_ID, getMoonraceConstPubkey } from '../Constants.js';
 import ReactTooltip from "react-tooltip";
 
 
-function SwapTokens ({usdBalance, solBalance, moonraceBalance}) {
+function BuyTokens ({usdBalance, solBalance, moonraceBalance}) {
     const [amount, setAmount] = useState(0);
     const [output, setOutput] = useState();
 
@@ -23,7 +23,7 @@ function SwapTokens ({usdBalance, solBalance, moonraceBalance}) {
 
 
   return (
-    <div className="swap-flex">
+    <div className="buy-flex">
         <ReactTooltip />
         <div className='swap-container'>
         <div className="top-row">
@@ -64,11 +64,11 @@ function SwapTokens ({usdBalance, solBalance, moonraceBalance}) {
                 </div>  
             </div>      
         </div>
-        <Swap amount={amount}/>
+        <Presale amount={amount}/>
 
         </div>
     </div>
   )
 }
 
-export default SwapTokens
+export default BuyTokens

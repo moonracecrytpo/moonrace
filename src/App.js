@@ -21,7 +21,9 @@ import { Presale } from './Presale';
 import { Team } from './Team';
 import { Wallet } from './Wallet';
 import React, { useMemo, useState } from 'react';
+import BuyTokens from "./components/BuyTokens";
 import SwapTokens from "./components/SwapTokens";
+
 
 
 export const App = () => {
@@ -64,16 +66,12 @@ export const App = () => {
 
                     {/* <Send /> */}
                     <Balance childToParent={childToParent} />
-                    <Buy />
+                    {/* <Buy /> */}
                     {/* <Sell /> */}
                     <Airdrop moonraceBalance={moonraceBalance}/>
-                    <SwapTokens usdBalance={usdBalance} solBalance={solBalance} moonraceBalance={moonraceBalance}/>
-                    {/* {url === '/' &&
-                        <Airdrop />
-                    }
-                    {url === '/Swap' &&
-                        <SwapTokens isSwap />
-                    }                     */}
+                    <BuyTokens usdBalance={usdBalance} solBalance={solBalance} moonraceBalance={moonraceBalance}/>
+                    {/* <SwapTokens usdBalance={usdBalance} solBalance={solBalance} moonraceBalance={moonraceBalance}/> */}
+
                     <Team />
                     {/* {solBalance}
                     {moonraceBalance} */}

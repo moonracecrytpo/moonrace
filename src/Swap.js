@@ -1,7 +1,7 @@
 import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey, Keypair, SystemProgram, Transaction } from '@solana/web3.js';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Provider, Program, BN } from '@project-serum/anchor'
 import { getMoonraceMintKey, getTestUsdcMint, getUSDCPoolPubKey, getUSDCFundPubKey, getMoonracePoolPubKey,
     getMoonraceAirdropPubKey, getAirdropStatePubkey, getUserAirdropStatePubkey } from './util.js';
@@ -15,14 +15,17 @@ export const MOONRACE_PROGRAM_ID = '6dsJRgf4Kdq6jE7Q5cgn2ow4KkTmRqukw9DDrYP4uvij
 export const HEDGE_PROGRAM_ID = '6dsJRgf4Kdq6jE7Q5cgn2ow4KkTmRqukw9DDrYP4uvij'
 // export const HEDGE_PROGRAM_ID = 'HEDGEau7kb5L9ChcchUC19zSYbgGt3mVCpaTK6SMD8P4'
 
-
-
 export const Swap = () => {
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
     const { wallet } = useWallet()
     console.log('WALLET', wallet)
 
+    const [isError, setIsError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
 
     const onClick = useCallback(async () => {
         if (!publicKey) throw new WalletNotConnectedError();
@@ -89,13 +92,40 @@ export const Swap = () => {
                 }
             )
         );
-        const signature = await sendTransaction(transaction, connection);
-        await connection.confirmTransaction(signature, 'processed');
+        
+        try {
+            const signature = await sendTransaction(transaction, connection);
+            await connection.confirmTransaction(signature, 'processed');
+            setIsSuccess(true)
+            setSuccessMessage("Your purchase was successful!")
+            setInterval(() => {  //assign interval to a variable to clear it.
+                setIsSuccess(false)
+            }, 5000)
+            return () => clearInterval(0);
+        } catch (error) {
+            console.log("ERROR")
+            setIsError(true)
+            setErrorMessage(error.message)
+            setInterval(() => {  //assign interval to a variable to clear it.
+                setIsError(false)
+            }, 5000)
+            return () => clearInterval(0);
+        }
     }, [publicKey, sendTransaction, connection]);
 
     return (
-        <button onClick={onClick} disabled={!publicKey}>
-            Swap
-        </button>
+        <div className='submit-btn' onClick={onClick} >
+            BUY
+            {isError && 
+                <div className="error">
+                    ERROR: {errorMessage}
+                </div>
+            }
+            {isSuccess && 
+                <div className="success">
+                    SUCCESSS: {successMessage}
+                </div>
+            }
+        </div>
     );
 };

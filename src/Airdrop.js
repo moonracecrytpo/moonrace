@@ -44,7 +44,7 @@ export function Airdrop({moonraceBalance}) {
       const lastAirdropDate = new Date(lastAirdropTimestamp * 1000)
       // Last aidrop date
       console.log('Last Airdrop:', lastAirdropDate)
-      const diff = lastAirdropDate - 24
+      const diff = 86400000 - Math.abs(lastAirdropDate - new Date())
       setTimeRemaining(diff)
       console.log("AJHASJKH");
       console.log(diff);

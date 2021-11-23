@@ -16,8 +16,13 @@ body {
     height: 100vh;
 }
 
-.swap {
+.presale {
     background-image: url(./images/swap_background.png) !important;
+}
+
+.swap {
+    background-image: url(./images/moon_logo.png) !important;
+
 }
 
 nav {
