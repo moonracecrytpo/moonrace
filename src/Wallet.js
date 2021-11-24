@@ -41,13 +41,13 @@ export const Wallet = () => {
     );
 
     return (
-        <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets} autoConnect>
+        // <ConnectionProvider endpoint={endpoint}>
+        //     <WalletProvider wallets={wallets} autoConnect>
                 <WalletModalProvider>
                     <Navigation />
                     {/* <Swap /> */}
                 </WalletModalProvider>
-            </WalletProvider>
-        </ConnectionProvider>
+        //     </WalletProvider>
+        // </ConnectionProvider>
     );
 };
