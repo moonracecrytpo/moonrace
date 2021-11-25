@@ -12,6 +12,7 @@ export async function getMoonraceMintKey (programId) {
 }
 
 export async function getTestUsdcMint (programId) {
+  return [new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"), null]
   const enc = new TextEncoder()
   const [findMintPublicKey, bump] = await PublicKey.findProgramAddress([enc.encode('usdc')], programId)
   return [findMintPublicKey, bump]

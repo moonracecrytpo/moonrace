@@ -27,7 +27,7 @@ import SwapTokens from "./components/SwapTokens";
 
 
 export const App = () => {
-    const network = WalletAdapterNetwork.Devnet;
+    const network = WalletAdapterNetwork.Mainnet;
     const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
     const url = window.location.pathname

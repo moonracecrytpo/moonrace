@@ -20,7 +20,7 @@ import './main.css';
 
 
 export const Wallet = () => {
-    const network = WalletAdapterNetwork.Devnet;
+    const network = WalletAdapterNetwork.Mainnet;
     const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
     // @solana/wallet-adapter-wallets imports all the adapters but supports tree shaking --

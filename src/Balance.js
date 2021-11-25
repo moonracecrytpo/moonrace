@@ -58,6 +58,8 @@ const { connection } = useConnection()
         // Initialize program
         const program = await Program.at(new PublicKey(MOONRACE_PROGRAM_ID), provider)
         const [usdcMint, tempbump5] =  await getTestUsdcMint(program.programId);
+        console.log("USDC MINT");
+        console.log(usdcMint);
 
 
         // USDC Public Key
@@ -127,14 +129,17 @@ const { connection } = useConnection()
             const solBalance = await solanaBalance()
             console.log('SOLANA BALANCE:', solBalance)
     
-            const moonBalance = await moonraceBalance()
+            let moonBalance = 0
+            try { 
+                moonBalance = await moonraceBalance()
+            } catch (e) {
+                console.log("User has no $moonrace yet")
+            }
             const usdBalance =  await usdcBalance()
-    
             setSolBalance(solBalance)
-            setMoonraceBalance(moonBalance / 100)
+            setMoonraceBalance(moonBalance / 1000)
             setUsdBalance(usdBalance / 1000000)
-    
-            childToParent(solBalance, moonBalance / 100, usdBalance / 1000000)
+            childToParent(solBalance, moonBalance / 1000, usdBalance / 1000000)
             setIsSuccess(true)
             setSuccessMessage("Balance refreshed!")
             setInterval(() => {  //assign interval to a variable to clear it.
@@ -143,6 +148,7 @@ const { connection } = useConnection()
             return () => clearInterval(0);
         } catch (error) {
             console.log("ERROR")
+            console.log(error)
             setIsError(true)
             let errorMessage = error.message
             if (error.message === "Cannot read properties of null (reading 'toBase58')") {
@@ -168,11 +174,11 @@ const { connection } = useConnection()
                 ERROR: {errorMessage}
             </div>
         }
-        {isSuccess && 
+        {/* {isSuccess && 
             <div className="success">
                 SUCCESSS: {successMessage}
             </div>
-        }
+        } */}
         </div>
     );
 
