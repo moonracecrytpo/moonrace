@@ -61,7 +61,6 @@ const { connection } = useConnection()
         console.log("USDC MINT");
         console.log(usdcMint);
 
-
         // USDC Public Key
         const usdcAccountPublicKey = await Token.getAssociatedTokenAddress(
             ASSOCIATED_TOKEN_PROGRAM_ID,
@@ -130,12 +129,17 @@ const { connection } = useConnection()
             console.log('SOLANA BALANCE:', solBalance)
     
             let moonBalance = 0
+            let usdBalance = 0
             try { 
                 moonBalance = await moonraceBalance()
             } catch (e) {
                 console.log("User has no $moonrace yet")
             }
-            const usdBalance =  await usdcBalance()
+            try { 
+                usdBalance =  await usdcBalance()
+            } catch (e) {
+                console.log("User has no $moonrace yet")
+            }
             setSolBalance(solBalance)
             setMoonraceBalance(moonBalance / 1000)
             setUsdBalance(usdBalance / 1000000)
