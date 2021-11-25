@@ -11,10 +11,29 @@ html {
 
 .main-layout {
     /* display: flex; */
-    padding-top: 400px;
+    padding-top: 20%;   
+}
+
+@media (max-width: 1200px) {
+    .main-layout {
+       padding-top: 12%;   
+    }
 }
 
 
+@media (max-width: 800px) {
+    .main-layout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .next-airdrop {
+        color: white !important;
+    }
+}
 .next-drop {
     padding-right: 30px;
 }

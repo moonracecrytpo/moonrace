@@ -40,7 +40,10 @@ nav > div > button {
     margin-left: 1rem;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
+    /* nav {
+        display: none;
+    } */
     nav > h1 {
         max-width: 90px;
     }

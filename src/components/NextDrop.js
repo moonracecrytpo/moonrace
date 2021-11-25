@@ -9,7 +9,7 @@ function NextDrop (props) {
   return (
     <div className='banner d-flex flex-row'>
       <span className onClick={() => setHidden(true)}><i className='fa fa-times' /></span>
-      <span className>Next Drop</span>
+      <span className="next-drop">Next Drop</span>
     </div>
   )
 }

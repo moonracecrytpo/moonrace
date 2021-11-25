@@ -13,6 +13,10 @@ export function Balance({childToParent}) {
     const [solBalance, setSolBalance] = useState(0);
     const [usdBalance, setUsdBalance] = useState(0);
     const [moonraceBalanceValue, setMoonraceBalance] = useState(0);
+    const [isError, setIsError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
 
     // Connection and wallet
 const { connection } = useConnection()
@@ -118,24 +122,57 @@ const { connection } = useConnection()
 
     const handleClick = async () => {
 
-        const solBalance = await solanaBalance()
-        console.log('SOLANA BALANCE:', solBalance)
-
-        const moonBalance = await moonraceBalance()
-        const usdBalance =  await usdcBalance()
-
-        setSolBalance(solBalance)
-        setMoonraceBalance(moonBalance / 100)
-        setUsdBalance(usdBalance / 1000000)
-
-        childToParent(solBalance, moonBalance / 100, usdBalance / 1000000)
-        console.log('MOONRACE BALANCE:', moonBalance)
+        try {
+            // Create and sign transaction
+            const solBalance = await solanaBalance()
+            console.log('SOLANA BALANCE:', solBalance)
+    
+            const moonBalance = await moonraceBalance()
+            const usdBalance =  await usdcBalance()
+    
+            setSolBalance(solBalance)
+            setMoonraceBalance(moonBalance / 100)
+            setUsdBalance(usdBalance / 1000000)
+    
+            childToParent(solBalance, moonBalance / 100, usdBalance / 1000000)
+            setIsSuccess(true)
+            setSuccessMessage("Balance refreshed!")
+            setInterval(() => {  //assign interval to a variable to clear it.
+                setIsSuccess(false)
+            }, 5000)
+            return () => clearInterval(0);
+        } catch (error) {
+            console.log("ERROR")
+            setIsError(true)
+            let errorMessage = error.message
+            if (error.message === "Cannot read properties of null (reading 'toBase58')") {
+              errorMessage = "Connect your wallet first, moon lad!"
+            }
+            setErrorMessage(errorMessage)
+            setInterval(() => {  //assign interval to a variable to clear it.
+                setIsError(false)
+            }, 5000)
+            return () => clearInterval(0);
+        }
     }
 
     return (
+        <div>
         <div className="refresh">
             <img fill="white" width="30px" onClick={handleClick} src={Refresh} alt="moonlogo"/>
             <span>Refresh</span><span> Balance</span>
+            
+        </div>
+        {isError && 
+            <div className="error">
+                ERROR: {errorMessage}
+            </div>
+        }
+        {isSuccess && 
+            <div className="success">
+                SUCCESSS: {successMessage}
+            </div>
+        }
         </div>
     );
 

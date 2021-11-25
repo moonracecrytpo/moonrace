@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../home.css';
-import MoonLogo from '../images/moon_logo.png';
+import MoonLogo from '../images/moon_logo.svg';
 import { Airdrop } from '../Airdrop';
 
 

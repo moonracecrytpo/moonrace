@@ -21,6 +21,10 @@ function BuyTokens ({usdBalance, solBalance, moonraceBalance}) {
         setOutput(fixed);
       }
 
+      const handleClick = async () => {
+          handleChange(usdBalance)
+      }
+
 
   return (
     <div className="buy-flex">
@@ -40,8 +44,8 @@ function BuyTokens ({usdBalance, solBalance, moonraceBalance}) {
                 <div className="left-balance">Balance: {usdBalance} </div>
             </div>
             <div className="right">
-                <div>
-                    Max: 1000.45
+                <div className="max" onClick={handleClick}>
+                    Max: {usdBalance}
                 </div>  
                 <div className="value">
                 <input

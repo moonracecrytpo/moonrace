@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Provider, Program } from '@project-serum/anchor'
 import { getUserAirdropStatePubkey, getAirdropStatePubkey, getMoonraceAirdropPubKey, getMoonraceMintKey, MOONRACE_PROGRAM_ID} from './Constants.js';
 import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, Token } from '@solana/spl-token'
-import MoonLogo from './images/moon_logo.png';
+import MoonLogo from './images/moon_logo_alien.png';
 import Countdown from "react-countdown";
 
 
