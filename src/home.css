@@ -72,6 +72,17 @@ html {
     padding-top: 8px;
 }
 
+.timer-value-inner{
+    width: 350px;
+    background-image: linear-gradient(#3D3062, #783C50);
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    border-radius: 20px;
+}
+
 .claim-button {
     width: 150px;
     height: 50px;

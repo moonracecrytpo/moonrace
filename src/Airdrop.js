@@ -187,7 +187,13 @@ export function Airdrop({moonraceBalance}) {
     const renderer = ({ hours, minutes, seconds, completed }) => {
       if (completed) {
         // Render a complete state
-        return <span>TAKEOFF</span>;
+        return (
+        <div className="timer-value-inner">
+          <div className="airdrop-ready">AIRDROP READY FOR TAKEOFF</div>
+          <span>
+            {hours}:{minutes}:{seconds}
+          </span>
+        </div>);
       } else {
         // Render a countdown
         return (

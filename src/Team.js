@@ -23,13 +23,6 @@ export function Team() {
     const [teamOne, setTeamOne] = useState(0);
     const [teamTwo, setTeamTwo] = useState(0);
 
-    // const update = useCallback(async () => {
-    //     console.log("yo")
-    //     handleClick();
-
-    // }, [Wallet, connection, userWalletPublicKey]);
-
-
     useEffect(() => {
         handleClick();
         // const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
@@ -45,7 +38,6 @@ export function Team() {
 
     // Create acc and claim
     const getTeam = useCallback(async () => {
-        
 
         // Initialize program
         const program = await Program.at(new PublicKey(MOONRACE_PROGRAM_ID), provider)

@@ -10,10 +10,7 @@ const Token = require('@solana/spl-token').Token
 const SplToken = require('@solana/spl-token')
 const TOKEN_PROGRAM_ID = require('@solana/spl-token').TOKEN_PROGRAM_ID
 
-
 export const MOONRACE_PROGRAM_ID = '6dsJRgf4Kdq6jE7Q5cgn2ow4KkTmRqukw9DDrYP4uvij';
-export const HEDGE_PROGRAM_ID = '6dsJRgf4Kdq6jE7Q5cgn2ow4KkTmRqukw9DDrYP4uvij'
-// export const HEDGE_PROGRAM_ID = 'HEDGEau7kb5L9ChcchUC19zSYbgGt3mVCpaTK6SMD8P4'
 
 export const Swap = () => {
     const { connection } = useConnection();

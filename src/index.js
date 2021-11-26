@@ -24,7 +24,6 @@ require('./index.css');
 ReactDOM.render(
     <Router>
         <App />
-
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Presale" element={<Presale />}>LINK</Route>
