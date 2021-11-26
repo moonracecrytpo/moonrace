@@ -24,6 +24,7 @@ export const Swap = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
 
+    console.log("Ahhhhh shiiiiiiiet")
     const onClick = useCallback(async () => {
         if (!publicKey) throw new WalletNotConnectedError();
         console.log('pubkey:', publicKey.toString());

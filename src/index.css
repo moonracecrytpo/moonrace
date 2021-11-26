@@ -7,7 +7,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #ffffff;
-    background: url(./images/moonrace_background.png) no-repeat center center fixed;
+    background: url(./images/moonrace_background_small.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
