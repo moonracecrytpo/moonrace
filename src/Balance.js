@@ -7,6 +7,10 @@ import { Provider, Program } from '@project-serum/anchor'
 import { getMoonraceMintKey, MOONRACE_PROGRAM_ID, getTestUsdcMint } from './Constants.js';
 import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, Token } from '@solana/spl-token'
 import Refresh from './images/white_refresh.svg';
+import Orange from './images/orange.gif';
+import Blue from './images/blue.gif';
+
+
 import './main.css';
 
 export function Balance({childToParent}) {
@@ -17,6 +21,9 @@ export function Balance({childToParent}) {
     const [errorMessage, setErrorMessage] = useState("");
     const [isSuccess, setIsSuccess] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
+    const [address, setAddress] = useState("");
+    const [team, setTeam] = useState("");
+
 
     // Connection and wallet
 const { connection } = useConnection()
@@ -33,11 +40,9 @@ const { connection } = useConnection()
             handleClick();
         }
 
-    }, 5000)
-        
-        return () => clearInterval(intervalId); //This is important
-        
-      }, [userWalletPublicKey])
+        }, 5000)
+        return () => clearInterval(intervalId);
+    }, [userWalletPublicKey])
 
     // Solana balance
     const solanaBalance = useCallback(async () => {
@@ -45,6 +50,18 @@ const { connection } = useConnection()
         const balance = await connection.getBalance(userWalletPublicKey)
         return balance;
     }, [connection, userWalletPublicKey])
+
+    const getPubKey = useCallback(async () => {
+        const provider = new Provider(connection, Wallet, {
+            /** disable transaction verification step */
+            skipPreflight: false,
+            /** desired commitment level */
+            commitment: 'confirmed',
+            /** preflight commitment level */
+            preflightCommitment: 'confirmed'
+        })
+        return provider.wallet.publicKey.toString()
+    });
 
     const usdcBalance = useCallback(async () => {
         const provider = new Provider(connection, Wallet, {
@@ -55,11 +72,20 @@ const { connection } = useConnection()
             /** preflight commitment level */
             preflightCommitment: 'confirmed'
           })
+        let firstChar = provider.wallet.publicKey.toString().charCodeAt(0)
+        let team = firstChar % 2;
+        if (team === 0) {
+            setTeam("orange");
+        } else {
+            setTeam("blue")
+        }
+          
         // Initialize program
         const program = await Program.at(new PublicKey(MOONRACE_PROGRAM_ID), provider)
         const [usdcMint, tempbump5] =  await getTestUsdcMint(program.programId);
         console.log("USDC MINT");
         console.log(usdcMint);
+        
 
         // USDC Public Key
         const usdcAccountPublicKey = await Token.getAssociatedTokenAddress(
@@ -127,17 +153,21 @@ const { connection } = useConnection()
             // Create and sign transaction
             const solBalance = await solanaBalance()
             console.log('SOLANA BALANCE:', solBalance)
-    
+            let addy = await getPubKey()
+            console.log(addy)
+            setAddress(addy)
             let moonBalance = 0
             let usdBalance = 0
             try { 
                 moonBalance = await moonraceBalance()
             } catch (e) {
+                console.log(e)
                 console.log("User has no $moonrace yet")
             }
             try { 
                 usdBalance =  await usdcBalance()
             } catch (e) {
+                console.log(e)
                 console.log("User has no $moonrace yet")
             }
             setSolBalance(solBalance)
@@ -146,12 +176,11 @@ const { connection } = useConnection()
             childToParent(solBalance, moonBalance / 1000, usdBalance / 1000000)
             setIsSuccess(true)
             setSuccessMessage("Balance refreshed!")
-            setInterval(() => {  //assign interval to a variable to clear it.
+            setInterval(() => {
                 setIsSuccess(false)
             }, 5000)
             return () => clearInterval(0);
         } catch (error) {
-            console.log("ERROR")
             console.log(error)
             setIsError(true)
             let errorMessage = error.message
@@ -159,7 +188,7 @@ const { connection } = useConnection()
               errorMessage = "Connect your wallet first, moon lad!"
             }
             setErrorMessage(errorMessage)
-            setInterval(() => {  //assign interval to a variable to clear it.
+            setInterval(() => {
                 setIsError(false)
             }, 5000)
             return () => clearInterval(0);
@@ -173,6 +202,29 @@ const { connection } = useConnection()
             <span>Refresh</span><span> Balance</span>
             
         </div>
+        {team === "orange" &&
+        <div className="orange-team-container">
+            <div className="orange-team"> 
+                <div>Team: {team} </div>
+                <div className="address">Address: {address} </div>
+            </div>
+            <div>
+                <img width="120px" src={Orange} alt="Orange team"/>
+            </div>
+        </div>
+
+        }
+        {team === "blue" && 
+        <div className="blue-team-container">
+            <div className="blue-team"> 
+                <div> Team: {team} </div>
+                <div className="address">Address: {address} </div>
+            </div>
+            <div>
+                <img width="150px" src={Blue} alt="Blue team"/>
+            </div>
+        </div>    
+        }
         {isError && 
             <div className="error">
                 ERROR: {errorMessage}

@@ -25,24 +25,24 @@ export const Navigation = () => {
                 <h1 className="moonrace">MOONRACE</h1>
             </div>
             <div className="full-nav">
-            <div className="nav-links">
-                 <Link style={{ textDecoration: 'none' }} to="/">
-                    <div className="nav-link">
-                        MOON
-                    </div>
-                </Link>
+                <div className="nav-links">
+                    <Link style={{ textDecoration: 'none' }} to="/">
+                        <div className="nav-link">
+                            MOON
+                        </div>
+                    </Link>
 
-                <Link style={{ textDecoration: 'none' }}to="/Presale">
-                    <div className="nav-link">
-                        BUY
-                    </div>
-                </Link>
-                {/* <Link style={{ textDecoration: 'none' }}to="/Swap">
-                    <div className="nav-link">
-                        SWAP
-                    </div>
-                </Link> */}
-            </div>
+                    <Link style={{ textDecoration: 'none' }}to="/Presale">
+                        <div className="nav-link">
+                            BUY
+                        </div>
+                    </Link>
+                    {/* <Link style={{ textDecoration: 'none' }}to="/Swap">
+                        <div className="nav-link">
+                            SWAP
+                        </div>
+                    </Link> */}
+                </div>
                 <WalletMultiButton />
                 {wallet && <WalletDisconnectButton />}
             </div>
