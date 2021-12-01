@@ -20,6 +20,9 @@ function Presale (props) {
             if (x1.length > 1) { 
                 x1[1].classList.add("hide"); 
             }
+            if (x1.length > 2) { 
+                x1[2].classList.add("hide"); 
+            }
         }
 
 
