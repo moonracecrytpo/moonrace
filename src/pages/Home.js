@@ -15,6 +15,12 @@ function Home (props) {
 
         if(x.length > 0) { 
             x[0].classList.remove("hide"); 
+            if(x.length > 1) { 
+                x[1].classList.remove("hide"); 
+            }
+            if(x.length > 2) { 
+                x[2].classList.remove("hide"); 
+            }
         }
         
         if(x1.length > 0) { 
