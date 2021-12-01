@@ -203,7 +203,7 @@ const { connection } = useConnection()
             
         </div>
         {team === "orange" &&
-        <div className="orange-team-container">
+        <div className="orange-team-container teams">
             <div className="orange-team"> 
                 <div>Team: {team} </div>
                 <div className="address">Address: {address} </div>
@@ -212,10 +212,10 @@ const { connection } = useConnection()
                 <img width="120px" src={Orange} alt="Orange team"/>
             </div>
         </div>
-
         }
+
         {team === "blue" && 
-        <div className="blue-team-container">
+        <div className="blue-team-container teams">
             <div className="blue-team"> 
                 <div> Team: {team} </div>
                 <div className="address">Address: {address} </div>

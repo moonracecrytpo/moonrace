@@ -11,13 +11,17 @@ function Presale (props) {
         let x1 = document.getElementsByClassName("teams");
         let x2 = document.getElementsByClassName("swap-flex");
 
-        if(x.length > 0) { 
+        if (x.length > 0) { 
             x[0].classList.add("hide"); 
         }
 
-        if(x1.length > 0) { 
+        if (x1.length > 0) { 
             x1[0].classList.add("hide"); 
+            if (x1.length > 1) { 
+                x1[1].classList.add("hide"); 
+            }
         }
+
 
         console.log(x2)
         if(x2.length > 0) { 
