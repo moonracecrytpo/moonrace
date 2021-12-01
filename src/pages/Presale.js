@@ -25,10 +25,7 @@ function Presale (props) {
             }
         }
 
-
-        console.log(x2)
         if(x2.length > 0) { 
-            console.log("PRESALE")
             x2[0].classList.add("hide"); 
         }
 

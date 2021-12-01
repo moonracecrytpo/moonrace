@@ -197,39 +197,41 @@ const { connection } = useConnection()
 
     return (
         <div>
-        <div className="refresh">
-            <img fill="white" width="30px" onClick={handleClick} src={Refresh} alt="moonlogo"/>
-            <span>Refresh</span><span> Balance</span>
-            
-        </div>
-        {team === "orange" &&
-        <div className="orange-team-container teams">
-            <div className="orange-team"> 
-                <div>Team: {team} </div>
-                <div className="address">Address: {address} </div>
+            <div className="refresh">
+                <img fill="white" width="30px" onClick={handleClick} src={Refresh} alt="moonlogo"/>
+                <span>Refresh</span><span> Balance</span>
+                
             </div>
-            <div>
-                <img width="120px" src={Orange} alt="Orange team"/>
-            </div>
-        </div>
-        }
+            <div className="teams">
+                {team === "orange" &&
+                <div className="orange-team-container">
+                    <div className="orange-team"> 
+                        <div>Team: {team} </div>
+                        <div className="address">Address: {address} </div>
+                    </div>
+                    <div>
+                        <img width="120px" src={Orange} alt="Orange team"/>
+                    </div>
+                </div>
+                }
 
-        {team === "blue" && 
-        <div className="blue-team-container teams">
-            <div className="blue-team"> 
-                <div> Team: {team} </div>
-                <div className="address">Address: {address} </div>
+                {team === "blue" && 
+                <div className="blue-team-container ">
+                    <div className="blue-team"> 
+                        <div> Team: {team} </div>
+                        <div className="address">Address: {address} </div>
+                    </div>
+                    <div>
+                        <img width="150px" src={Blue} alt="Blue team"/>
+                    </div>
+                </div>    
+                }
+                {isError && 
+                    <div className="error">
+                        ERROR: {errorMessage}
+                    </div>
+                }
             </div>
-            <div>
-                <img width="150px" src={Blue} alt="Blue team"/>
-            </div>
-        </div>    
-        }
-        {isError && 
-            <div className="error">
-                ERROR: {errorMessage}
-            </div>
-        }
         {/* {isSuccess && 
             <div className="success">
                 SUCCESSS: {successMessage}
