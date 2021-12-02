@@ -87,11 +87,14 @@ export function Team() {
                 <br />
                 <div className="">Amount claimed: {(((teamOne - teamOneRemaining) / teamOne) * 100).toFixed(2) }%</div>
 
-                {(teamOne - teamOneRemaining) / teamOne !== 0 && (teamOne - teamOneRemaining) / teamTwo < 0.2 &&
+                {(teamOne - teamOneRemaining) / teamOne !== 0 && (teamOne - teamOneRemaining) / teamOne < 0.2 &&
                     <ProgressBar width={300} percent=".2" color="blue-progress"/>
                 }   
-                {(((teamOne - teamOneRemaining) / teamOne >= 0.2) || ((teamOne - teamOneRemaining) / teamTwo === 0)) &&
-                    <ProgressBar width={300} percent={(teamOne - teamOneRemaining) / teamTwo } color="blue-progress"/>
+                {(((teamOne - teamOneRemaining) / teamOne >= 0.2 && (teamOne - teamOneRemaining) / teamOne <= 1.01) || ((teamOne - teamOneRemaining) / teamOne === 0)) &&
+                    <ProgressBar width={300} percent={(teamOne - teamOneRemaining) / teamOne } color="blue-progress"/>
+                } 
+                {((teamOne - teamOneRemaining) / teamOne > 1.01) &&
+                    <ProgressBar width={300} percent={1} color="blue-progress"/>
                 } 
             </div>
             <div className="orange">
@@ -106,9 +109,12 @@ export function Team() {
                 {(teamTwo - teamTwoRemaining) / teamTwo !== 0 && (teamTwo - teamTwoRemaining) / teamTwo < 0.2 &&
                     <ProgressBar width={300} percent=".2" color="orange-progress"/>
                 }   
-                {(((teamTwo - teamTwoRemaining) / teamTwo >= 0.2) || ((teamTwo - teamTwoRemaining) / teamTwo === 0)) &&
-                    <ProgressBar width={300} percent={(teamTwo - teamTwoRemaining) / teamTwo } color="orange-progress"/>
-                }   
+                {(((teamTwo - teamTwoRemaining) / teamTwo >= 0.2 && (teamTwo - teamTwoRemaining) / teamTwo <= 1.01) || ((teamTwo - teamTwoRemaining) / teamOne === 0)) &&
+                    <ProgressBar width={300} percent={(teamTwo - teamTwoRemaining) / teamTwo } color="blue-progress"/>
+                } 
+                {((teamTwo - teamTwoRemaining) / teamTwo > 1.01) &&
+                    <ProgressBar width={300} percent={1} color="blue-progress"/>
+                } 
             </div>
         </div>
         {/* <button onClick={handleClick} >
