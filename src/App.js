@@ -14,10 +14,9 @@ import { clusterApiUrl } from '@solana/web3.js';
 import { Navigation } from './Navigation';
 import { Send } from './Send';
 import { Balance } from './Balance';
-import { Buy } from './Buy';
+import { BuyOld } from './BuyOld';
 import { Sell } from './Sell';
 import { Airdrop } from './Airdrop';
-import { Presale } from './Presale';
 import { Team } from './Team';
 import { Wallet } from './Wallet';
 import React, { useMemo, useState } from 'react';
@@ -28,6 +27,7 @@ import SwapTokens from "./components/SwapTokens";
 
 export const App = () => {
     const network = WalletAdapterNetwork.Mainnet;
+    // const network = WalletAdapterNetwork.Devnet;
     const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
     const url = window.location.pathname
