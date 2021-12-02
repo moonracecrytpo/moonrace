@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Wallet } from './Wallet';
 import NextDrop from './components/NextDrop';
 import MainLayout from './components/MainLayout';
-import Presale from "./pages/Presale";
+import Buy from "./pages/Buy";
 import Swap from "./pages/Swap";
 import Home from "./pages/Home";
 import {App} from "./App";
@@ -26,7 +26,7 @@ ReactDOM.render(
         <App />
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Presale" element={<Presale />}>LINK</Route>
+            <Route path="/Buy" element={<Buy />}>LINK</Route>
             <Route path="/Swap" element={<Swap />}>LINK</Route>
         </Routes>
     </Router>

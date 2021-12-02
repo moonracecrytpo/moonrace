@@ -11,7 +11,7 @@ import './main.css';
 
 const SplToken = require('@solana/spl-token')
 
-export function Presale({amount}) {
+export function BuyPresale({amount}) {
     // Connection and wallet
     const { connection } = useConnection()
     const { publicKey: userWalletPublicKey } = useWallet()

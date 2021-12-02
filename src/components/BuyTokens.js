@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import '../main.css';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { Presale } from '../Presale';
+import { BuyPresale } from '../BuyPresale';
 import { PublicKey } from '@solana/web3.js';
 import { Provider, Program } from '@project-serum/anchor'
 import { MOONRACE_PROGRAM_ID, getMoonraceConstPubkey } from '../Constants.js';
@@ -68,7 +68,7 @@ function BuyTokens ({usdBalance, solBalance, moonraceBalance}) {
                 </div>  
             </div>      
         </div>
-        <Presale amount={amount}/>
+        <BuyPresale amount={amount}/>
 
         </div>
     </div>

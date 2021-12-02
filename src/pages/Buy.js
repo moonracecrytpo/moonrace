@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import '../main.css';
 
   
-function Presale (props) {
+function Buy (props) {
     const url = window.location.pathname
 
     useEffect(() => {
-        document.body.className = 'presale';
+        document.body.className = 'buy';
         let x = document.getElementsByClassName("main-layout");
         let x1 = document.getElementsByClassName("teams");
         let x2 = document.getElementsByClassName("swap-flex");
@@ -44,4 +44,4 @@ function Presale (props) {
 }
 
 
-export default Presale
+export default Buy
