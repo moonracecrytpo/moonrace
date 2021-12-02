@@ -32,7 +32,7 @@ export const Navigation = () => {
                         </div>
                     </Link>
 
-                    <Link style={{ textDecoration: 'none' }}to="/Presale">
+                    <Link style={{ textDecoration: 'none' }}to="/Buy">
                         <div className="nav-link">
                             BUY
                         </div>
