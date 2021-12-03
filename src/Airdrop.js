@@ -207,8 +207,8 @@ export function Airdrop({moonraceBalance}) {
     return (
       <div className="main-layout">
             <div className="timer">
-                <div className="next-airdrop">NEXT AIRDROP</div>
                 <div className="timer-value">
+                  <div className="next-airdrop-label">Next Airdrop Reset:</div>
                   {!isBusy &&
                     <Countdown date={Date.now() + timeRemaining} 
                       renderer={renderer} />

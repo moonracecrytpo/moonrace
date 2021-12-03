@@ -83,6 +83,10 @@ html {
     border-radius: 20px;
 }
 
+.next-airdrop-label {
+    font-size: 22px;
+}
+
 .claim-button {
     width: 150px;
     height: 50px;
