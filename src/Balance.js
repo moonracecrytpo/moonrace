@@ -197,7 +197,7 @@ const { connection } = useConnection()
 
     return (
         <div>
-            <div className="refresh">
+            <div className="refresh hide-on-mobile">
                 <img fill="white" width="30px" onClick={handleClick} src={Refresh} alt="moonlogo"/>
                 <span>Refresh</span><span> Balance</span>
                 

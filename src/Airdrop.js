@@ -7,6 +7,7 @@ import { getUserAirdropStatePubkey, getAirdropStatePubkey, getMoonraceAirdropPub
 import { TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, Token } from '@solana/spl-token'
 import MoonLogo from './images/moon_logo_alien.png';
 import Countdown from "react-countdown";
+import './main.css';
 
 
 const SplToken = require('@solana/spl-token')
@@ -206,6 +207,11 @@ export function Airdrop({moonraceBalance}) {
 
     return (
       <div className="main-layout">
+            <div className="switch hide-on-desktop">
+              <div>
+                Please switch to desktop to connect wallet.<span><a className="inline-2" href="https://moonrace.xyz">moonrace.xyz</a> for more details</span>
+                </div>
+            </div>
             <div className="timer">
                 <div className="timer-value">
                   <div className="next-airdrop-label">Next Airdrop Reset:</div>
@@ -226,7 +232,7 @@ export function Airdrop({moonraceBalance}) {
                 </div>
 
             </div>
-            <div className="claim">
+            <div className="claim hide-on-mobile">
                 <div onClick={handleClick} className="claim-button">
                     CLAIM
                 </div>
