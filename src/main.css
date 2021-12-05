@@ -395,6 +395,24 @@ input::-webkit-inner-spin-button {
     transition: 1s ease;
     transition-delay: 0.5s;
   }
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0%;
+    left: 2%;
+    font-size: 18px;
+    flex-direction: row;
+}
+
+.inline {
+    display: inline;
+    padding-left: 20px;
+}
+
 @media (max-width: 800px) {
     .teams{
         flex-direction: column;

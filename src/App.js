@@ -19,6 +19,7 @@ import { Sell } from './Sell';
 import { Airdrop } from './Airdrop';
 import { Team } from './Team';
 import { Wallet } from './Wallet';
+import Footer from './components/Footer';
 import React, { useMemo, useState } from 'react';
 import BuyTokens from "./components/BuyTokens";
 import SwapTokens from "./components/SwapTokens";
@@ -75,6 +76,7 @@ export const App = () => {
                     <Team />
                     {/* {solBalance}
                     {moonraceBalance} */}
+                    <Footer />
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
