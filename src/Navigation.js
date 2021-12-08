@@ -30,13 +30,18 @@ export const Navigation = () => {
                         <div className="nav-link">
                             MOON
                         </div>
-                    </Link>
+                    </Link> */}
 
-                    <Link style={{ textDecoration: 'none' }}to="/Buy">
+                    {/* <Link style={{ textDecoration: 'none' }}to="/Buy">
                         <div className="nav-link">
                             BUY
                         </div>
                     </Link> */}
+                    <div>
+                        <a style={{ textDecoration: 'none' }} href="https://raydium.io/swap/?from=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&to=vqU8NVkkgpFtt3YECwuQRD3RhX7LYaqZKrotZbdiBJn" className="nav-link">
+                            BUY
+                        </a>
+                    </div>
                     {/* <Link style={{ textDecoration: 'none' }}to="/Swap">
                         <div className="nav-link">
                             SWAP
