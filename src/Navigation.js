@@ -26,7 +26,7 @@ export const Navigation = () => {
             </div>
             <div className="full-nav">
                 <div className="nav-links">
-                    <Link style={{ textDecoration: 'none' }} to="/">
+                    {/* <Link style={{ textDecoration: 'none' }} to="/">
                         <div className="nav-link">
                             MOON
                         </div>
@@ -36,7 +36,7 @@ export const Navigation = () => {
                         <div className="nav-link">
                             BUY
                         </div>
-                    </Link>
+                    </Link> */}
                     {/* <Link style={{ textDecoration: 'none' }}to="/Swap">
                         <div className="nav-link">
                             SWAP
